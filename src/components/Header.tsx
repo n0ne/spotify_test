@@ -11,16 +11,15 @@ const Header: FC = () => {
 
   return (
     <Grid container justifyContent="space-between" alignItems="center">
-        <Grid item>
-          <Typography variant="h4" component="h2" gutterBottom>
-            Simple Spotify Search App
-          </Typography>
-        </Grid>
-        <Grid item>
-          {token ? <Logout /> : <Login />}
-        </Grid>
+      <Grid item>
+        <Typography variant="h4" component="h2" gutterBottom>
+          Simple Spotify Search App
+        </Typography>
       </Grid>
-
+      <Grid item>
+        {token ? <Logout /> : <Login />}
+      </Grid>
+    </Grid>
   );
 }
 
