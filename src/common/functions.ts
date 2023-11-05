@@ -8,13 +8,13 @@ type TracksResponse = {
   };
 };
 
+const http: HttpService = new HttpService('https://api.spotify.com');
+
 export async function getTracks(query: string, token: string): Promise<Track[]> {
   if (!query) {
     return [];
   }
   
-  const http: HttpService = new HttpService('https://api.spotify.com');
-
   const url: string = `v1/search`;
 
   const config: AxiosRequestConfig = {
@@ -28,14 +28,11 @@ export async function getTracks(query: string, token: string): Promise<Track[]> 
     }
   };
 
-  const response: AxiosResponse<TracksResponse> = await http.read(url, config)
-  const data: TracksResponse = response.data;
+  const { data } = await http.read<TracksResponse>(url, config);
   return data.tracks.items;
 }
 
 export async function playTrack(deviceId: string, spotify_uri: string, token: string): Promise<AxiosResponse> {
-  const http: HttpService = new HttpService('https://api.spotify.com');
-
   const url: string = `v1/me/player/play?device_id=${deviceId}`;
 
   const data: object = {
