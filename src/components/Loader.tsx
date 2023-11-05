@@ -10,7 +10,7 @@ interface LoaderListProps {
 }
 
 const cardStyle = {
-  maxWidth: 345 
+  maxWidth: 345
 }
 const boxStyle = {
   pt: 0.5
@@ -49,9 +49,9 @@ const LoaderItem: FC = () => {
 export const Loader: FC<LoaderListProps> = ({ num = 15 }) => {
   return (
     <Grid container spacing={2}>
-      {[...Array(num)].map(() => (
-        <Grid item xs={12} sm={6} md={4} key={Math.random()} >
-          <LoaderItem key={Math.random()} />
+      {[...Array(num)].map((_, index) => (
+        <Grid item xs={12} sm={6} md={4} key={index} >
+          <LoaderItem />
         </Grid>
       ))}
     </Grid>
