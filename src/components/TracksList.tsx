@@ -29,7 +29,11 @@ const TrackList: FC = () => {
   const tracks: TrackType[] = data || [];
 
   const handleClick = useCallback((id: string) => {
-    playTrack(deviceId, id, token)
+    try {
+      playTrack(deviceId, id, token)
+    } catch (error) {
+      console.log(error)
+    }
   }, [deviceId]);
 
   if (!token) {

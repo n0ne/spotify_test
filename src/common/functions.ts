@@ -28,8 +28,13 @@ export async function getTracks(query: string, token: string): Promise<Track[]> 
     }
   };
 
-  const { data } = await http.read<TracksResponse>(url, config);
-  return data.tracks.items;
+  try {
+    const { data } = await http.read<TracksResponse>(url, config);
+    return data.tracks.items;
+  } catch (error) {
+    console.error('Error: ', error);
+    throw error;
+  }
 }
 
 export async function playTrack(deviceId: string, spotify_uri: string, token: string): Promise<AxiosResponse> {
@@ -48,5 +53,11 @@ export async function playTrack(deviceId: string, spotify_uri: string, token: st
     }
   };
 
-  return await http.put(url, data, config);
+  try {
+    return await http.put(url, data, config);
+  } catch (error) {
+    // Handle the error here, e.g. log the error or throw a custom error
+    console.error('An error occurred during the HTTP PUT request:', error);
+    throw error;
+  }
 }
