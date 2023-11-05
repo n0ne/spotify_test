@@ -21,7 +21,7 @@ function TrackList() {
     queryKey: ['tracks', search],
     queryFn: () => getTracks(search, token),
   });
-  const deviceId = usePlayer()
+  const deviceId: string = usePlayer()
 
   const tracks: TrackType[] = data || [];
 
