@@ -4,13 +4,14 @@ import { getTracks, playTrack } from "../common/functions";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import Track from "./Track";
 
-import type { Track as TrackType } from '../types/track'
+import type { Track as TrackType } from "../types/track"
 import { Grid } from "@mui/material";
 import usePlayer from "../common/usePlayer";
 import Search from "./Search";
 import Loader from "./Loader";
 import NotFound from "./NotFound";
 import NeedAuth from "./NeedAuth";
+import ErrorBoundary from "./ErrorBoundary";
 
 
 function TrackList() {
@@ -38,18 +39,18 @@ function TrackList() {
   }
 
   return (
-    <>
+    <ErrorBoundary>
       <Search setSearch={setSearch} />
       {isLoading && <Loader />}
       {!tracks.length && !isLoading && <NotFound />}
-      {!!tracks.length &&<Grid container spacing={2}>
+      {!!tracks.length && <Grid container spacing={2}>
         {tracks?.map((track: TrackType) => (
           <Grid item xs={12} sm={6} md={4} key={track.external_ids.isrc} >
             <Track item={track} onClick={() => handleClick(track.uri)} />
           </Grid>
         ))}
       </Grid>}
-    </>
+    </ErrorBoundary>
   );
 }
 
