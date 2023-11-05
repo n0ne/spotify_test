@@ -6,6 +6,10 @@ interface SearchProps {
   setSearch: (searchTerm: string) => void;
 }
 
+const style = {
+  maxWidth: '97%',
+}
+
 const Search: React.FC<SearchProps> = ({ setSearch }) => {
   const [inputValue, setInputValue] = useState<string>('');
   const debouncedSearchTerm = useDebounce<string>(inputValue, 500);
@@ -20,7 +24,7 @@ const Search: React.FC<SearchProps> = ({ setSearch }) => {
   }, [debouncedSearchTerm])
 
   return (
-    <Box>
+    <Box sx={style}>
       <TextField
         fullWidth
         id="standard-basic"
