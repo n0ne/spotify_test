@@ -15,7 +15,7 @@ interface TrackProps {
 }
 
 const cardStyle = {
-  maxWidth: 345 
+  maxWidth: 345
 }
 
 const iconStyle = {
@@ -57,10 +57,8 @@ const Track: FC<TrackProps> = ({ item, onClick }) => {
             </IconButton>
           </Grid>
           <Grid item>
-            <Typography variant="body2">
-              <Typography variant="subtitle1" color="text.secondary" component="div">
-                {format(new Date(item.duration_ms), 'mm:ss')}
-              </Typography>
+            <Typography variant="subtitle1" color="text.secondary" component="div">
+              {format(new Date(item.duration_ms), 'mm:ss')}
             </Typography>
           </Grid>
         </Grid>
