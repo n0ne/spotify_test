@@ -13,7 +13,7 @@ const style = {
 
 const Search: React.FC<SearchProps> = ({ setSearch }) => {
   const [inputValue, setInputValue] = useState<string>('');
-  const debouncedSearchTerm = useDebounce<string>(inputValue, 500);
+  const debouncedSearchValue = useDebounce<string>(inputValue, 500);
 
   const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -21,8 +21,8 @@ const Search: React.FC<SearchProps> = ({ setSearch }) => {
   }, []);
 
   useEffect(() => {
-    setSearch(debouncedSearchTerm)
-  }, [debouncedSearchTerm])
+    setSearch(debouncedSearchValue)
+  }, [debouncedSearchValue])
 
   return (
     <Box sx={style}>
