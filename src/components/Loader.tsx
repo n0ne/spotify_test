@@ -2,8 +2,11 @@ import React, { FC, memo } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import IconButton from '@mui/material/IconButton';
+import CardActions from '@mui/material/CardActions';
+import Grid from '@mui/material/Grid';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { Box, CardActions, Grid, Skeleton } from '@mui/material';
+import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
 
 interface LoaderListProps {
   num?: number;
