@@ -14,7 +14,7 @@ import NeedAuth from "./NeedAuth";
 
 
 function TrackList() {
-  const [search, setSearch] = useState<string | ''>('')
+  const [search, setSearch] = useState<string>('')
   const [token] = useLocalStorage<string>('token')
 
   const { data, isLoading, error } = useQuery<TrackType[], Error>({

@@ -3,7 +3,7 @@ import { useLocalStorage } from '@uidotdev/usehooks';
 
 
 function usePlayer() {
-  const [deviceId, setDeviceId] = useState<string | ''>('');
+  const [deviceId, setDeviceId] = useState<string>('');
   const [token] = useLocalStorage<string>('token')
 
   useEffect(() => {
