@@ -39,7 +39,7 @@ const Track: FC<TrackProps> = ({ item, onClick }) => {
         component="img"
         height="194"
         image={imageUrl}
-        alt="Paella dish"
+        alt={albumName}
       />
       <CardContent>
         <Typography noWrap component="div" variant="h5">
