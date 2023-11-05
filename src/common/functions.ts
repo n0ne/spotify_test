@@ -56,8 +56,7 @@ export async function playTrack(deviceId: string, spotify_uri: string, token: st
   try {
     return await http.put(url, data, config);
   } catch (error) {
-    // Handle the error here, e.g. log the error or throw a custom error
-    console.error('An error occurred during the HTTP PUT request:', error);
+    console.error('Error: ', error);
     throw error;
   }
 }
