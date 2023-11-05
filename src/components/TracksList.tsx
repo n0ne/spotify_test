@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useCallback, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
 import { getTracks, playTrack } from "../common/functions";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import Track from "./Track";
@@ -14,7 +14,7 @@ import NeedAuth from "./NeedAuth";
 import ErrorBoundary from "./ErrorBoundary";
 
 
-function TrackList() {
+const TrackList: FC = () => {
   const [search, setSearch] = useState<string>('')
   const [token] = useLocalStorage<string>('token')
 
