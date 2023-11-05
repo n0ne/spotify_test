@@ -4,8 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import CardActions from '@mui/material/CardActions';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { CardActions, Grid, Link } from '@mui/material';
 import { format } from 'date-fns';
 import { Track as TrackType } from '../types/track';
 
@@ -24,28 +26,35 @@ const iconStyle = {
 }
 
 const Track: FC<TrackProps> = ({ item, onClick }) => {
+  const { external_urls, name, artists, album, duration_ms } = item;
+  const { images, external_urls: albumExternalUrls, name: albumName } = album;
+  const { url: imageUrl } = images[0];
+  const { external_urls: artistExternalUrls, name: artistName } = artists[0];
+
+  const duration = format(new Date(duration_ms), 'mm:ss')
+
   return (
     <Card sx={cardStyle}>
       <CardMedia
         component="img"
         height="194"
-        image={item.album.images[0].url}
+        image={imageUrl}
         alt="Paella dish"
       />
       <CardContent>
         <Typography noWrap component="div" variant="h5">
-          <Link href={item.external_urls.spotify} color="inherit" underline='none'>
-            {item.name}
+          <Link href={external_urls.spotify} color="inherit" underline='none'>
+            {name}
           </Link>
         </Typography>
         <Typography variant="subtitle1" color="text.secondary" component="div">
-          <Link href={item.artists[0].external_urls.spotify} color="inherit" underline='none'>
-            {item.artists[0].name}
+          <Link href={artistExternalUrls.spotify} color="inherit" underline='none'>
+            {artistName}
           </Link>
         </Typography>
         <Typography noWrap variant="caption" display="block" gutterBottom>
-          <Link href={item.album.external_urls.spotify} color="inherit" underline='none'>
-            {item.album.name}
+          <Link href={albumExternalUrls.spotify} color="inherit" underline='none'>
+            {albumName}
           </Link>
         </Typography>
       </CardContent>
@@ -58,14 +67,13 @@ const Track: FC<TrackProps> = ({ item, onClick }) => {
           </Grid>
           <Grid item>
             <Typography variant="subtitle1" color="text.secondary" component="div">
-              {format(new Date(item.duration_ms), 'mm:ss')}
+              {duration}
             </Typography>
           </Grid>
         </Grid>
 
       </CardActions>
     </Card>
-
   );
 }
 

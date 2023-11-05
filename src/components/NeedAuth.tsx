@@ -1,18 +1,20 @@
-import React, { FC } from 'react';
-import { Box, Typography } from '@mui/material';
+import React, { FC, memo } from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const style = {
   width: '100%',
   maxWidth: 500
 }
-const NeedAuth: FC = () => {
+
+const NeedAuth: FC = memo(() => {
   return (
     <Box sx={style}>
       <Typography variant="h3" gutterBottom>
-        Plaese, login first...
+        Please, login first...
       </Typography>
     </Box>
   );
-}
+});
 
 export default NeedAuth;

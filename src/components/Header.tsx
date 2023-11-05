@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import Login from './Login';
 import Logout from './Logout';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 const Header: FC = () => {
-
-  const [token] = useLocalStorage<string | null>('token')
+  const [token] = useLocalStorage<string | null>('token');
 
   return (
     <Grid container justifyContent="space-between" alignItems="center">
@@ -21,6 +20,6 @@ const Header: FC = () => {
       </Grid>
     </Grid>
   );
-}
+};
 
 export default Header;

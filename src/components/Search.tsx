@@ -1,5 +1,6 @@
-import { Box, TextField } from "@mui/material";
-import React, { useEffect, useState, ChangeEvent } from "react";
+import React, { useEffect, useState, ChangeEvent, useCallback } from "react";
+import TextField from "@mui/material/TextField";
+import Box from '@mui/material/Box';
 import { useDebounce } from "@uidotdev/usehooks";
 
 interface SearchProps {
@@ -14,10 +15,10 @@ const Search: React.FC<SearchProps> = ({ setSearch }) => {
   const [inputValue, setInputValue] = useState<string>('');
   const debouncedSearchTerm = useDebounce<string>(inputValue, 500);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setInputValue(value);
-  };
+  }, []);
 
   useEffect(() => {
     setSearch(debouncedSearchTerm)

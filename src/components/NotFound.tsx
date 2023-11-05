@@ -1,11 +1,13 @@
-import React, { FC } from 'react';
-import { Box, Typography } from '@mui/material';
+import React, { FC, memo } from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const style = {
   width: '100%',
   maxWidth: 500
-}
-const NotFound: FC = () => {
+};
+
+const NotFound: FC = memo(() => {
   return (
     <Box sx={style}>
       <Typography variant="h3" gutterBottom>
@@ -13,6 +15,6 @@ const NotFound: FC = () => {
       </Typography>
     </Box>
   );
-}
+});
 
 export default NotFound;

@@ -1,17 +1,17 @@
-import React, { FC } from 'react';
-import { Link } from '@mui/material';
+import React, { FC, useCallback } from 'react';
+import Link from '@mui/material/Link';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 const Logout: FC = () => {
   const [_, saveToken] = useLocalStorage<string | null>('token')
 
-  const clearToken = (): void => {
-    saveToken(null)
-  }
+  const clearToken = useCallback(() => {
+    saveToken(null);
+  }, [saveToken]);
 
   return (
-    <Link onClick={clearToken} >Log out</Link>
+    <Link onClick={clearToken}>Log out</Link>
   );
-}
+};
 
 export default Logout;

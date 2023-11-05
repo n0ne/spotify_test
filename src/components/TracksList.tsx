@@ -1,18 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
 import React, { FC, useCallback, useState } from "react";
-import { getTracks, playTrack } from "../common/functions";
+import { useQuery } from "@tanstack/react-query";
 import { useLocalStorage } from "@uidotdev/usehooks";
-import Track from "./Track";
-
-import type { Track as TrackType } from "../types/track"
 import { Grid } from "@mui/material";
-import usePlayer from "../common/usePlayer";
+
 import Search from "./Search";
+import Track from "./Track";
 import Loader from "./Loader";
 import NotFound from "./NotFound";
 import NeedAuth from "./NeedAuth";
 import ErrorBoundary from "./ErrorBoundary";
 
+import { getTracks, playTrack } from "../common/functions";
+import usePlayer from "../common/usePlayer";
+
+import type { Track as TrackType } from "../types/track"
 
 const TrackList: FC = () => {
   const [search, setSearch] = useState<string>('')
@@ -22,6 +23,7 @@ const TrackList: FC = () => {
     queryKey: ['tracks', search],
     queryFn: () => getTracks(search, token),
   });
+
   const deviceId: string = usePlayer()
 
   const tracks: TrackType[] = data || [];

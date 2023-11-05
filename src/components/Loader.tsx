@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import IconButton from '@mui/material/IconButton';
@@ -20,8 +20,8 @@ const iconStyle = {
   height: 38,
   width: 38
 }
-const LoaderItem: FC = () => {
 
+const LoaderItem: FC = memo(() => {
   return (
     <Card sx={cardStyle}>
       <Skeleton variant="rectangular" height={194} />
@@ -44,7 +44,7 @@ const LoaderItem: FC = () => {
       </CardActions>
     </Card>
   );
-}
+})
 
 export const Loader: FC<LoaderListProps> = ({ num = 15 }) => {
   return (
