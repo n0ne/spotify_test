@@ -9,7 +9,7 @@ import { CardActions, Grid, Link } from '@mui/material';
 import { format } from 'date-fns';
 import { Track as TrackType } from '../types/track';
 
-interface MediaCardProps {
+interface TrackProps {
   item: TrackType;
   onClick: () => void;
 }
@@ -23,7 +23,7 @@ const iconStyle = {
   width: 38
 }
 
-const Track: FC<MediaCardProps> = ({ item, onClick }) => {
+const Track: FC<TrackProps> = ({ item, onClick }) => {
   return (
     <Card sx={cardStyle}>
       <CardMedia
