@@ -1,11 +1,10 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import Container from '@mui/material/Container';
 import useGetToken from './common/useGetToken';
 import TrackList from './components/TracksList';
 import Header from './components/Header';
 
-
-export default function App() {
+const App: FC = () => {
 
   useGetToken()
 
@@ -16,3 +15,5 @@ export default function App() {
     </Container>
   );
 }
+
+export default App;
