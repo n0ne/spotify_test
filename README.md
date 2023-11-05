@@ -5,6 +5,9 @@
  - cd `spotify_test`
  - yarn run start
  - go to `http://localhost:3000/`
+ - login to Spotify
+ - try to search
+ - click Play button
   
 ## Expected result
 
