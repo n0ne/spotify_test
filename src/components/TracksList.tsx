@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { getTracks, playTrack } from "../common/functions";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import Track from "./Track";
