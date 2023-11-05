@@ -9,7 +9,7 @@ const NeedAuth: FC = () => {
   return (
     <Box sx={style}>
       <Typography variant="h3" gutterBottom>
-        You need auth...
+        Plaese, login first...
       </Typography>
     </Box>
   );
