@@ -19,7 +19,6 @@ class HttpService {
 
     try {
       const response = await this.axiosInstance.get<T>(url, newConfig);
-
       return response;
     } catch (error) {
       if (axios.isCancel(error)) {

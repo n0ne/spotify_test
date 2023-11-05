@@ -18,7 +18,6 @@ function useGetToken(): string | null {
         setToken(token);
       }
     }
-
     setToken(savedToken);
   }, []);
 
