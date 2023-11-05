@@ -45,7 +45,7 @@ function TrackList() {
       {!tracks.length && !isLoading && <NotFound />}
       {!!tracks.length && <Grid container spacing={2}>
         {tracks?.map((track: TrackType) => (
-          <Grid item xs={12} sm={6} md={4} key={track.external_ids.isrc} >
+          <Grid item xs={12} sm={6} md={4} key={track.id} >
             <Track item={track} onClick={() => handleClick(track.uri)} />
           </Grid>
         ))}
